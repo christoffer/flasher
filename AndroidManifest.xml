@@ -4,10 +4,15 @@
   android:versionCode="1"
   android:versionName="1.0">
 
-  <uses-sdk android:minSdkVersion="16" />
+  <uses-sdk
+    android:minSdkVersion="14"
+    android:targetSdkVersion="16" />
+
   <application
     android:label="@string/app_name"
-    android:icon="@drawable/ic_launcher">
+    android:icon="@drawable/ic_launcher"
+    android:name=".FlashCardsApp">
+
     <activity
       android:name="CardViewer"
       android:label="@string/app_name">
@@ -16,5 +21,6 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+
   </application>
 </manifest>
