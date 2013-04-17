@@ -5,8 +5,8 @@ import com.j256.ormlite.field.DatabaseField;
 
 public class WordPair {
   public static final String FIELD_ID = "id";
-  public static final String FIELD_FROM_TEXT = "from_text";
-  public static final String FIELD_TO_TEXT = "to_text";
+  public static final String FIELD_QUESTION_TEXT = "question_text";
+  public static final String FIELD_ANSWER_TEXT = "answer_text";
   public static final String FIELD_PRIMARY_GROUP = "primary_group";
   public static final String FIELD_SECONDARY_GROUP = "secondary_group";
 
@@ -17,18 +17,18 @@ public class WordPair {
   int id;
 
   @DatabaseField(
-    columnName = FIELD_FROM_TEXT,
+    columnName = FIELD_QUESTION_TEXT,
     canBeNull = false,
     dataType = DataType.STRING
   )
-  String fromText;
+  String questionText;
 
   @DatabaseField(
-    columnName = FIELD_TO_TEXT,
+    columnName = FIELD_ANSWER_TEXT,
     canBeNull = false,
     dataType = DataType.STRING
   )
-  String toText;
+  String answerText;
 
   @DatabaseField(
     columnName = FIELD_PRIMARY_GROUP,
