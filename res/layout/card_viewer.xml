@@ -6,7 +6,7 @@
 
   <fragment
     android:id="@+id/fragmentAnswer"
-    android:name="com.christofferklang.FlashCards.AnswerFragment"
+    android:name="com.christofferklang.flasher.AnswerCardFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1">
@@ -14,7 +14,7 @@
 
   <fragment
     android:id="@+id/fragmentQuestion"
-    android:name="com.christofferklang.FlashCards.QuestionFragment"
+    android:name="com.christofferklang.flasher.QuestionCardFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1">

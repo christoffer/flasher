@@ -1,4 +1,4 @@
-package com.christofferklang.FlashCards;
+package com.christofferklang.flasher;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -13,7 +13,7 @@ import android.widget.TextView;
  * user interactions such as showing the answer or marking it at as correct
  * or incorrect.
  */
-public class QuestionFragment extends Fragment implements FlashCardQuestion {
+public class QuestionCardFragment extends Fragment implements QuestionCardUI {
   private static TextView mTextQuestion;
   private FlashCardQuestionListener mListener;
 

@@ -1,11 +1,12 @@
-package com.christofferklang.FlashCards;
+package com.christofferklang.flasher;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
 
-public class CardViewer extends BaseActivity implements FlashCardQuestionListener {
-  private static FlashCardAnswer mAnswer;
-  private static FlashCardQuestion mQuestion;
+public class FlashCardViewer extends BaseActivity implements FlashCardQuestionListener {
+  private static AnswerCardUI mAnswerCard;
+  private static QuestionCardUI mQuestionCard;
+
   private String mCurrentQuestion;
   private String mCurrentAnswer;
 
@@ -16,9 +17,10 @@ public class CardViewer extends BaseActivity implements FlashCardQuestionListene
     setContentView(R.layout.card_viewer);
 
     FragmentManager fragmentManager = getFragmentManager();
-    mAnswer = (FlashCardAnswer) fragmentManager.findFragmentById(R.id.fragmentAnswer);
-    mQuestion = (FlashCardQuestion) fragmentManager.findFragmentById(R.id.fragmentQuestion);
+    mAnswerCard = (AnswerCardUI) fragmentManager.findFragmentById(R.id.fragmentAnswer);
+    mQuestionCard = (QuestionCardUI) fragmentManager.findFragmentById(R.id.fragmentQuestion);
 
+    // Sample word pair
     changeCurrentCard("Das Boot", "the boat");
   }
 
@@ -26,7 +28,7 @@ public class CardViewer extends BaseActivity implements FlashCardQuestionListene
   public void onRevealAnswer() {
     _verbose("onRevealAnswer");
     if(mCurrentAnswer != null) {
-      mAnswer.revealAnswer(mCurrentAnswer);
+      mAnswerCard.revealAnswer(mCurrentAnswer);
     }
   }
 
@@ -43,6 +45,6 @@ public class CardViewer extends BaseActivity implements FlashCardQuestionListene
   private void changeCurrentCard(String question, String answer) {
     mCurrentQuestion = question;
     mCurrentAnswer = answer;
-    mQuestion.setQuestion(question);
+    mQuestionCard.setQuestion(question);
   }
 }

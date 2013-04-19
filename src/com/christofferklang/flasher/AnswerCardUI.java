@@ -1,6 +1,9 @@
-package com.christofferklang.FlashCards;
+package com.christofferklang.flasher;
 
-public interface FlashCardAnswer {
+/**
+ * Interface for ui interaction with an answer card
+ */
+public interface AnswerCardUI {
   /**
    * Reveal the answer
    */

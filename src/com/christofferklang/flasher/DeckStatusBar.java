@@ -1,4 +1,4 @@
-package com.christofferklang.FlashCards;
+package com.christofferklang.flasher;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -29,8 +29,6 @@ public class DeckStatusBar extends LinearLayout {
     View.inflate(getContext(), R.layout._deck_status_bar, this);
     mTextRemaining = (TextView) findViewById(R.id.textRemaining);
     mTextCompleted = (TextView) findViewById(R.id.textCompleted);
-
-    resetDeckSize(0);
   }
 
   /**

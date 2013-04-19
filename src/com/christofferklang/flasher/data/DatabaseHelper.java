@@ -1,4 +1,4 @@
-package com.christofferklang.FlashCards.data;
+package com.christofferklang.flasher.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

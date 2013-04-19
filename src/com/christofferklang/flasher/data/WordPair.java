@@ -1,4 +1,4 @@
-package com.christofferklang.FlashCards.data;
+package com.christofferklang.flasher.data;
 
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
@@ -21,7 +21,7 @@ public class WordPair {
     canBeNull = false,
     dataType = DataType.STRING
   )
-  String questionText;
+ String questionText;
 
   @DatabaseField(
     columnName = FIELD_ANSWER_TEXT,

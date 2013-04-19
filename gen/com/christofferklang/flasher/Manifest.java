@@ -1,6 +1,6 @@
 /*___Generated_by_IDEA___*/
 
-package com.christofferklang.FlashCards;
+package com.christofferklang.flasher;
 
 /* This stub is for using by IDE only. It is NOT the Manifest class actually packed into APK */
 public final class Manifest {

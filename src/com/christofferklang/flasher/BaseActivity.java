@@ -1,4 +1,4 @@
-package com.christofferklang.FlashCards;
+package com.christofferklang.flasher;
 
 import android.app.Activity;
 import android.util.Log;
