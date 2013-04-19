@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * Fragment responsible for showing the answer to the current flash card.
+ */
 public class AnswerFragment extends Fragment implements FlashCardAnswer {
   private static TextView mTextAnswer;
   private static DeckStatusBar mDeckStatusBar;

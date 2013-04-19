@@ -8,6 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * Fragment responsible for showing the flash card question and handling
+ * user interactions such as showing the answer or marking it at as correct
+ * or incorrect.
+ */
 public class QuestionFragment extends Fragment implements FlashCardQuestion {
   private static TextView mTextQuestion;
   private FlashCardQuestionListener mListener;
