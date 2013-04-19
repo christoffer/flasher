@@ -11,6 +11,7 @@ public class BaseActivity extends Activity {
    *
    * @param message Message to log
    */
+  @SuppressWarnings("UnusedDeclaration")
   protected final void _debug(String message) {
     Log.d(TAG, message);
   }
@@ -20,6 +21,7 @@ public class BaseActivity extends Activity {
    *
    * @param message Message to log
    */
+  @SuppressWarnings("UnusedDeclaration")
   protected final void _info(String message) {
     Log.i(TAG, message);
   }
@@ -29,6 +31,7 @@ public class BaseActivity extends Activity {
    *
    * @param message Message to log
    */
+  @SuppressWarnings("UnusedDeclaration")
   protected final void _verbose(String message) {
     Log.v(TAG, message);
   }
