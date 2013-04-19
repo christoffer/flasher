@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 /**
@@ -40,7 +42,7 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
     mTextQuestion.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        mListener.onRevealAnswer();
+        revealAnswer();
       }
     });
 
@@ -52,5 +54,11 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
   @Override
   public void setQuestion(String question) {
     mTextQuestion.setText(question);
+  }
+
+  private void revealAnswer() {
+    Animation hideAnswer = AnimationUtils.loadAnimation(getActivity(), R.anim.hide_answer);
+    mTextQuestion.startAnimation(hideAnswer);
+    mListener.onRevealAnswer();
   }
 }

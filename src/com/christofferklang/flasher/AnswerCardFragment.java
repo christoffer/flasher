@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 /**
@@ -28,7 +30,9 @@ public class AnswerCardFragment extends Fragment implements AnswerCardUI {
 
   @Override
   public void revealAnswer(String answer) {
+    Animation revealAnswer = AnimationUtils.loadAnimation(getActivity(), R.anim.reveal_answer);
     mTextAnswer.setText(answer);
+    mTextAnswer.startAnimation(revealAnswer);
   }
 
   @Override
