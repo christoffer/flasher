@@ -4,10 +4,15 @@ public interface FlashCardAnswer {
   /**
    * Reveal the answer
    */
-  public void revealAnswer();
+  public void revealAnswer(String answer);
 
   /**
-   * Set the current answer
+   * Called when the user answered the question correctly
    */
-  public void setAnswer(String answer);
+  public void onCorrectAnswer();
+
+  /**
+   * Called when the user answered the question incorrectly
+   */
+  public void onWrongAnswer();
 }

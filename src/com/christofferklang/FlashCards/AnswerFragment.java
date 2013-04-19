@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class AnswerFragment extends Fragment implements FlashCardAnswer {
   private static TextView mTextAnswer;
-  private String mAnswer = "";
+  private static DeckStatusBar mDeckStatusBar;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -19,18 +19,15 @@ public class AnswerFragment extends Fragment implements FlashCardAnswer {
   }
 
   @Override
-  public void revealAnswer() {
-    mTextAnswer.setText(mAnswer);
-    mTextAnswer.setVisibility(View.VISIBLE);
+  public void revealAnswer(String answer) {
+    mTextAnswer.setText(answer);
   }
 
   @Override
-  public void setAnswer(String answer) {
-    hideAnswer();
-    mAnswer = answer == null ? "" : answer;
+  public void onCorrectAnswer() {
   }
 
-  private void hideAnswer() {
-    mTextAnswer.setText("");
+  @Override
+  public void onWrongAnswer() {
   }
 }

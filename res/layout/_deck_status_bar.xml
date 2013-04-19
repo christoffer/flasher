@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/layoutStatus"
+  android:orientation="horizontal"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_alignParentTop="true">
+
+  <TextView
+    android:id="@+id/textRemaining"
+    style="@style/statusNumber"
+    android:gravity="left"
+    android:text="[remaining]" />
+
+  <TextView
+    android:id="@+id/textCompleted"
+    style="@style/statusNumber"
+    android:gravity="right"
+    android:text="[complete]" />
+
+</merge>

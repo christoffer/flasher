@@ -23,7 +23,7 @@ public class CardViewer extends BaseActivity implements FlashCardQuestionListene
   @Override
   public void onRevealAnswer() {
     _verbose("onRevealAnswer");
-    mAnswer.revealAnswer();
+    mAnswer.revealAnswer("hejs");
   }
 
   @Override
@@ -37,7 +37,7 @@ public class CardViewer extends BaseActivity implements FlashCardQuestionListene
   }
 
   private void changeCurrentCard(String question, String answer) {
-    mAnswer.setAnswer(answer);
+//    mAnswer.setAnswer(answer);
     mQuestion.setQuestion(question);
   }
 }
