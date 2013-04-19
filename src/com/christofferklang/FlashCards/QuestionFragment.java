@@ -30,7 +30,7 @@ public class QuestionFragment extends Fragment implements FlashCardQuestion {
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.fragment_question, container, false);
+    View view = inflater.inflate(R.layout.question_fragment, container, false);
     mTextQuestion = (TextView) view.findViewById(R.id.textQuestion);
     mTextQuestion.setOnClickListener(new View.OnClickListener() {
       @Override

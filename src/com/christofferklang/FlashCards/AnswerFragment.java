@@ -13,7 +13,7 @@ public class AnswerFragment extends Fragment implements FlashCardAnswer {
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.fragment_answer, container, false);
+    View view = inflater.inflate(R.layout.answer_fragment, container, false);
     mTextAnswer = (TextView) view.findViewById(R.id.textAnswer);
     return view;
   }
