@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -17,7 +18,11 @@ import android.widget.TextView;
  */
 public class QuestionCardFragment extends Fragment implements QuestionCardUI {
   private static TextView mTextQuestion;
-  private FlashCardQuestionListener mListener;
+  private static Button mButtonCorrect;
+  private static Button mButtonWrong;
+
+  private static FlashCardQuestionListener mListener;
+  private static Animation hideAnswerAnimation;
 
   @Override
   public void onAttach(Activity activity) {
@@ -25,7 +30,8 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
     try {
       mListener = (FlashCardQuestionListener) getActivity();
     } catch(ClassCastException ignored) {
-      throw new RuntimeException("Parent activity must implement " + FlashCardQuestionListener.class.getName());
+      throw new RuntimeException("Parent activity must implement " +
+        FlashCardQuestionListener.class.getName());
     }
   }
 
@@ -36,17 +42,19 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
   }
 
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                           Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.question_fragment, container, false);
+
     mTextQuestion = (TextView) view.findViewById(R.id.textQuestion);
-    mTextQuestion.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        revealAnswer();
-      }
-    });
+    mButtonCorrect = (Button) view.findViewById(R.id.buttonCorrect);
+    mButtonWrong = (Button) view.findViewById(R.id.buttonWrong);
+
+    bindEvents();
+    preloadAnimations();
 
     mTextQuestion.setText("");
+    hideResultButtons();
 
     return view;
   }
@@ -56,9 +64,59 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
     mTextQuestion.setText(question);
   }
 
-  private void revealAnswer() {
-    Animation hideAnswer = AnimationUtils.loadAnimation(getActivity(), R.anim.hide_answer);
-    mTextQuestion.startAnimation(hideAnswer);
+  private void bindEvents() {
+    mTextQuestion.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        onRevealAnswer();
+      }
+    });
+
+    mButtonCorrect.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        onCorrect();
+      }
+    });
+
+    mButtonWrong.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        onWrong();
+      }
+    });
+  }
+
+  /**
+   * Do the heavy XML inflating up front
+   */
+  private void preloadAnimations() {
+    hideAnswerAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.hide_answer);
+  }
+
+  private void onRevealAnswer() {
+    mTextQuestion.startAnimation(hideAnswerAnimation);
     mListener.onRevealAnswer();
+    showResultButtons();
+  }
+
+  private void onCorrect() {
+    mListener.onCorrectAnswer();
+    hideResultButtons();
+  }
+
+  private void onWrong() {
+    mListener.onWrongAnswer();
+    hideResultButtons();
+  }
+
+  private void showResultButtons() {
+    mButtonCorrect.setVisibility(View.VISIBLE);
+    mButtonWrong.setVisibility(View.VISIBLE);
+  }
+
+  private void hideResultButtons() {
+    mButtonCorrect.setVisibility(View.INVISIBLE);
+    mButtonWrong.setVisibility(View.INVISIBLE);
   }
 }

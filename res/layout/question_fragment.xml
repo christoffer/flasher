@@ -17,4 +17,16 @@
     android:text="[question]"
     android:gravity="center" />
 
+  <Button
+    android:id="@+id/buttonCorrect"
+    android:layout_alignParentRight="true"
+    android:text="[correct]"
+    style="@style/resultButton" />
+
+  <Button
+    android:id="@+id/buttonWrong"
+    android:layout_alignParentLeft="true"
+    android:text="[wrong]"
+    style="@style/resultButton" />
+
 </RelativeLayout>

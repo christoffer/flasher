@@ -9,4 +9,10 @@
     <item name="android:textSize">18sp</item>
   </style>
 
+  <style name="resultButton">
+    <item name="android:layout_width">75dp</item>
+    <item name="android:layout_height">75dp</item>
+    <item name="android:layout_centerVertical">true</item>
+  </style>
+
 </resources>
