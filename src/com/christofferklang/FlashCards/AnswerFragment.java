@@ -18,6 +18,7 @@ public class AnswerFragment extends Fragment implements FlashCardAnswer {
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.answer_fragment, container, false);
     mTextAnswer = (TextView) view.findViewById(R.id.textAnswer);
+    mTextAnswer.setText("");
     return view;
   }
 

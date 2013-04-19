@@ -11,12 +11,12 @@
     android:id="@+id/textRemaining"
     style="@style/statusNumber"
     android:gravity="left"
-    android:text="[remaining]" />
+    android:text="24" />
 
   <TextView
     android:id="@+id/textCompleted"
     style="@style/statusNumber"
     android:gravity="right"
-    android:text="[complete]" />
+    android:text="76" />
 
 </merge>

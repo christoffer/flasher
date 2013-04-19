@@ -31,7 +31,6 @@ public class DeckStatusBar extends LinearLayout {
     mTextCompleted = (TextView) findViewById(R.id.textCompleted);
 
     resetDeckSize(0);
-    updateStatus();
   }
 
   /**

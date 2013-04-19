@@ -43,6 +43,9 @@ public class QuestionFragment extends Fragment implements FlashCardQuestion {
         mListener.onRevealAnswer();
       }
     });
+
+    mTextQuestion.setText("");
+
     return view;
   }
 

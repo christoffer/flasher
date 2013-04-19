@@ -6,6 +6,8 @@ import android.os.Bundle;
 public class CardViewer extends BaseActivity implements FlashCardQuestionListener {
   private static FlashCardAnswer mAnswer;
   private static FlashCardQuestion mQuestion;
+  private String mCurrentQuestion;
+  private String mCurrentAnswer;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -23,7 +25,9 @@ public class CardViewer extends BaseActivity implements FlashCardQuestionListene
   @Override
   public void onRevealAnswer() {
     _verbose("onRevealAnswer");
-    mAnswer.revealAnswer("hejs");
+    if(mCurrentAnswer != null) {
+      mAnswer.revealAnswer(mCurrentAnswer);
+    }
   }
 
   @Override
@@ -37,7 +41,8 @@ public class CardViewer extends BaseActivity implements FlashCardQuestionListene
   }
 
   private void changeCurrentCard(String question, String answer) {
-//    mAnswer.setAnswer(answer);
+    mCurrentQuestion = question;
+    mCurrentAnswer = answer;
     mQuestion.setQuestion(question);
   }
 }
