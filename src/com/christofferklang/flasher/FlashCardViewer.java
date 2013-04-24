@@ -7,9 +7,7 @@ import com.christofferklang.flasher.data.FlashCardEntry;
 
 import java.util.Stack;
 
-import static com.christofferklang.flasher.data.FlashCardEntry.MASCULINE;
-import static com.christofferklang.flasher.data.FlashCardEntry.NEUTER;
-import static com.christofferklang.flasher.data.FlashCardEntry.NOUN;
+import static com.christofferklang.flasher.data.FlashCardEntry.*;
 
 public class FlashCardViewer extends BaseActivity implements FlashCardQuestionListener {
   private static AnswerCardUI mAnswerCard;
@@ -48,6 +46,7 @@ public class FlashCardViewer extends BaseActivity implements FlashCardQuestionLi
     _verbose("onWrongAnswer");
     mDeck.push(mCurrentCard);
     popDeck();
+    mAnswerCard.onWrongAnswer();
   }
 
   @Override
@@ -55,6 +54,7 @@ public class FlashCardViewer extends BaseActivity implements FlashCardQuestionLi
     _verbose("onCorrectAnswer");
     mDeckStatusBar.incrementComplete();
     popDeck();
+    mAnswerCard.onCorrectAnswer();
   }
 
   /**
@@ -86,18 +86,15 @@ public class FlashCardViewer extends BaseActivity implements FlashCardQuestionLi
   private Stack<FlashCard> createSampleDeck() {
     Stack<FlashCard> sampleDeck = new Stack<FlashCard>();
 
-    FlashCard boat_EN_DE = new FlashCard(
-      new FlashCardEntry("Boat", NOUN),
-      new FlashCardEntry("Boot", NOUN, NEUTER)
-    );
+    sampleDeck.push(new FlashCard(
+      new FlashCardEntry("Boat", ENGLISH, NOUN),
+      new FlashCardEntry("Boot", GERMAN, NOUN, NEUTER)
+    ));
 
-    FlashCard dog_EN_DE = new FlashCard(
-      new FlashCardEntry("Dog", NOUN),
-      new FlashCardEntry("Hund", NOUN, MASCULINE)
-    );
-
-    sampleDeck.push(boat_EN_DE);
-    sampleDeck.push(dog_EN_DE);
+    sampleDeck.push(new FlashCard(
+      new FlashCardEntry("Dog", ENGLISH, NOUN),
+      new FlashCardEntry("Hund", GERMAN, NOUN, MASCULINE)
+    ));
 
     return sampleDeck;
   }

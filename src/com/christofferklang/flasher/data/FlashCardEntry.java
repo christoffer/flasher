@@ -76,24 +76,22 @@ public class FlashCardEntry {
 
   @SuppressWarnings("UnusedDeclaration")
   public FlashCardEntry() {
-    this("", NONE, NONE);
+    this("", NONE, NONE, NONE);
   }
 
   @SuppressWarnings("UnusedDeclaration")
   public FlashCardEntry(String text) {
-    this(text, NONE, NONE);
+    this(text, NONE, NONE, NONE);
   }
 
   @SuppressWarnings("UnusedDeclaration")
-  public FlashCardEntry(String text, int primaryGroup) {
-    this(text, primaryGroup, NONE);
+  public FlashCardEntry(String text, int languageCode) {
+    this(text, languageCode, NONE, NONE);
   }
 
   @SuppressWarnings("UnusedDeclaration")
   public FlashCardEntry(String text, int languageCode, int primaryGroup) {
-    mText = text;
-    mLanguageCode = languageCode;
-    mPrimaryGroup = primaryGroup;
+    this(text, languageCode, primaryGroup, NONE);
   }
 
   @SuppressWarnings("UnusedDeclaration")
