@@ -15,9 +15,9 @@ import android.widget.TextView;
  */
 public class AnswerCardFragment extends Fragment implements AnswerCardUI {
   private static TextView mTextAnswer;
-  private static Animation mAnimReveal;
-  private static Animation mAnimConcealCorrect;
-  private static Animation mAnimConcealWrong;
+  private static Animation mAnimShow;
+  private static Animation mAnimHideAsCorrect;
+  private static Animation mAnimHideAsWrong;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,9 +33,9 @@ public class AnswerCardFragment extends Fragment implements AnswerCardUI {
 
   private void setupAnimation() {
     Activity context = getActivity();
-    mAnimReveal = AnimationUtils.loadAnimation(context, R.anim.reveal_answer);
-    mAnimConcealCorrect = AnimationUtils.loadAnimation(context, R.anim.conceal_correct);
-    mAnimConcealWrong = AnimationUtils.loadAnimation(context, R.anim.conceal_wrong);
+    mAnimShow = AnimationUtils.loadAnimation(context, R.anim.show_answer);
+    mAnimHideAsCorrect = AnimationUtils.loadAnimation(context, R.anim.hide_answer_as_correct);
+    mAnimHideAsWrong = AnimationUtils.loadAnimation(context, R.anim.hide_answer_as_wrong);
 
     final SimpleAnimationListener animationEndListener = new SimpleAnimationListener() {
       @Override
@@ -44,12 +44,12 @@ public class AnswerCardFragment extends Fragment implements AnswerCardUI {
       }
     };
 
-    mAnimConcealCorrect.setAnimationListener(animationEndListener);
-    mAnimConcealWrong.setAnimationListener(animationEndListener);
+    mAnimHideAsCorrect.setAnimationListener(animationEndListener);
+    mAnimHideAsWrong.setAnimationListener(animationEndListener);
   }
 
   @Override
-  public void revealAnswer(String answer) {
+  public void showAnswer(String answer) {
     // Ensure that the currently playing animation finishes and invokes
     // the animation listener to avoid a race on who determines what the
     // text box says
@@ -60,16 +60,16 @@ public class AnswerCardFragment extends Fragment implements AnswerCardUI {
     }
 
     mTextAnswer.setText(answer);
-    mTextAnswer.startAnimation(mAnimReveal);
+    mTextAnswer.startAnimation(mAnimShow);
   }
 
   @Override
   public void onCorrectAnswer() {
-    mTextAnswer.startAnimation(mAnimConcealCorrect);
+    mTextAnswer.startAnimation(mAnimHideAsCorrect);
   }
 
   @Override
   public void onWrongAnswer() {
-    mTextAnswer.startAnimation(mAnimConcealWrong);
+    mTextAnswer.startAnimation(mAnimHideAsWrong);
   }
 }

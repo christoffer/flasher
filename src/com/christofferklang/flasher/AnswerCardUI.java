@@ -5,9 +5,9 @@ package com.christofferklang.flasher;
  */
 public interface AnswerCardUI {
   /**
-   * Reveal the answer
+   * Show the answer to the user
    */
-  public void revealAnswer(String answer);
+  public void showAnswer(String answer);
 
   /**
    * Called when the user answered the question correctly

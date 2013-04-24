@@ -4,7 +4,7 @@ public interface FlashCardQuestionListener {
   /**
    * Called when the user want the answer revealed
    */
-  public void onRevealAnswer();
+  public void onShowAnswer();
 
   /**
    * Called when the user did not know the answer

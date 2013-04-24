@@ -23,7 +23,8 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
   private static Button mButtonWrong;
 
   private static FlashCardQuestionListener mListener;
-  private static Animation hideAnswerAnimation;
+  private static Animation mAnimHideQuestion;
+  private static Animation mAnimShowQuestion;
 
   @Override
   public void onAttach(Activity activity) {
@@ -43,8 +44,7 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
   }
 
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                           Bundle savedInstanceState) {
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.question_fragment, container, false);
 
     mTextQuestion = (TextView) view.findViewById(R.id.textQuestion);
@@ -54,6 +54,7 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
     bindEvents();
     setupAnimations();
 
+    // Reset the UI
     mTextQuestion.setText("");
     hideResultButtons();
 
@@ -62,6 +63,7 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
 
   @Override
   public void setQuestion(FlashCard flashCard) {
+    mTextQuestion.startAnimation(mAnimShowQuestion);
     mTextQuestion.setText(flashCard.getQuestion());
   }
 
@@ -69,7 +71,7 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
     mTextQuestion.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        onRevealAnswer();
+        onHideQuestion();
       }
     });
 
@@ -92,12 +94,13 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
    * Do the heavy XML inflating up front
    */
   private void setupAnimations() {
-    hideAnswerAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.hide_answer);
+    mAnimShowQuestion = AnimationUtils.loadAnimation(getActivity(), R.anim.show_question);
+    mAnimHideQuestion = AnimationUtils.loadAnimation(getActivity(), R.anim.hide_question);
   }
 
-  private void onRevealAnswer() {
-    mTextQuestion.startAnimation(hideAnswerAnimation);
-    mListener.onRevealAnswer();
+  private void onHideQuestion() {
+    mTextQuestion.startAnimation(mAnimHideQuestion);
+    mListener.onShowAnswer();
     showResultButtons();
   }
 

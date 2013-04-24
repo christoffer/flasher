@@ -36,15 +36,15 @@ public class FlashCardViewer extends BaseActivity implements FlashCardQuestionLi
   }
 
   @Override
-  public void onRevealAnswer() {
-    _verbose("onRevealAnswer");
-    mAnswerCard.revealAnswer(mCurrentCard.getAnswer());
+  public void onShowAnswer() {
+    _verbose("onShowAnswer");
+    mAnswerCard.showAnswer(mCurrentCard.getAnswer());
   }
 
   @Override
   public void onWrongAnswer() {
     _verbose("onWrongAnswer");
-    mDeck.push(mCurrentCard);
+    mDeck.add(0, mCurrentCard);
     popDeck();
     mAnswerCard.onWrongAnswer();
   }
