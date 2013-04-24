@@ -23,6 +23,17 @@ public class FlashCardEntry {
   public static final String FIELD_PRIMARY_GROUP = "primary_group";
   public static final String FIELD_SECONDARY_GROUP = "secondary_group";
 
+  // Common classification constants
+  public static final int NONE = 0;
+  public static final int NOUN = 1;
+  public static final int VERB = 2;
+  public static final int ADJECTIVE = 3;
+
+  // German language genders
+  public static final int MASCULINE = 4;
+  public static final int NEUTER = 5;
+  public static final int FEMININE = 6;
+
   @DatabaseField(
     columnName = FIELD_ID,
     generatedId = true
@@ -34,7 +45,7 @@ public class FlashCardEntry {
     canBeNull = false,
     dataType = DataType.STRING
   )
- public String text;
+  public String text;
 
   @DatabaseField(
     columnName = FIELD_PRIMARY_GROUP,
