@@ -51,6 +51,7 @@ public class DeckStatusBar extends LinearLayout {
       mCompleted++;
       mRemaining--;
     }
+    updateStatus();
   }
 
   private void updateStatus() {
