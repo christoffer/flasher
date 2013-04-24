@@ -52,7 +52,7 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
     mButtonWrong = (Button) view.findViewById(R.id.buttonWrong);
 
     bindEvents();
-    preloadAnimations();
+    setupAnimations();
 
     mTextQuestion.setText("");
     hideResultButtons();
@@ -91,7 +91,7 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
   /**
    * Do the heavy XML inflating up front
    */
-  private void preloadAnimations() {
+  private void setupAnimations() {
     hideAnswerAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.hide_answer);
   }
 
