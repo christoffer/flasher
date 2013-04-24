@@ -60,4 +60,26 @@ public class FlashCardEntry {
     dataType = DataType.SHORT
   )
   public int secondaryGroup;
+
+  @SuppressWarnings("UnusedDeclaration")
+  public FlashCardEntry() {
+    this("", NONE, NONE);
+  }
+
+  @SuppressWarnings("UnusedDeclaration")
+  public FlashCardEntry(String text) {
+    this(text, NONE, NONE);
+  }
+
+  @SuppressWarnings("UnusedDeclaration")
+  public FlashCardEntry(String text, int primaryGroup) {
+    this(text, primaryGroup, NONE);
+  }
+
+  @SuppressWarnings("UnusedDeclaration")
+  public FlashCardEntry(String text, int primaryGroup, int secondaryGroup) {
+    this.text = text;
+    this.primaryGroup = primaryGroup;
+    this.secondaryGroup = secondaryGroup;
+  }
 }
