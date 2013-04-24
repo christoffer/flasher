@@ -33,15 +33,37 @@ public class FlashCard {
 
   @DatabaseField(
     columnName = FIELD_QUESTION_ID,
-    canBeNull = false,
     foreign = true
   )
-  public FlashCardEntry questionEntry;
+  private FlashCardEntry questionEntry;
 
   @DatabaseField(
     columnName = FIELD_ANSWER_ID,
-    canBeNull = false,
     foreign = true
   )
-  public FlashCardEntry answerEntry;
+  private FlashCardEntry answerEntry;
+
+  public FlashCard() {
+    questionEntry = null;
+    answerEntry = null;
+  }
+
+  public FlashCard(FlashCardEntry questionEntry, FlashCardEntry answerEntry) {
+    this.questionEntry = questionEntry;
+    this.answerEntry = answerEntry;
+  }
+
+  /**
+   * Gets the question word for this card
+   */
+  public String getQuestion() {
+    return questionEntry == null ? "" : questionEntry.text;
+  }
+
+  /**
+   * Gets the answer word for this card
+   */
+  public String getAnswer() {
+    return answerEntry == null ? "" : answerEntry.text;
+  }
 }
