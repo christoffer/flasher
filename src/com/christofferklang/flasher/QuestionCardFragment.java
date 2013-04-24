@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+import com.christofferklang.flasher.data.FlashCard;
 
 /**
  * Fragment responsible for showing the flash card question and handling
@@ -60,8 +61,8 @@ public class QuestionCardFragment extends Fragment implements QuestionCardUI {
   }
 
   @Override
-  public void setQuestion(String question) {
-    mTextQuestion.setText(question);
+  public void setQuestion(FlashCard flashCard) {
+    mTextQuestion.setText(flashCard.getQuestion());
   }
 
   private void bindEvents() {

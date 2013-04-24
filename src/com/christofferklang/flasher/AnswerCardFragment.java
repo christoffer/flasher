@@ -14,16 +14,12 @@ import android.widget.TextView;
  */
 public class AnswerCardFragment extends Fragment implements AnswerCardUI {
   private static TextView mTextAnswer;
-  private static DeckStatusBar mDeckStatusBar;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.answer_fragment, container, false);
 
     mTextAnswer = (TextView) view.findViewById(R.id.textAnswer);
-    mDeckStatusBar = (DeckStatusBar) view.findViewById(R.id.deckStatusBar);
-
-    mDeckStatusBar.resetDeckSize(0);
     mTextAnswer.setText("");
     return view;
   }

@@ -7,11 +7,6 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
-  <com.christofferklang.flasher.DeckStatusBar
-    android:id="@+id/deckStatusBar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-
   <TextView
     android:id="@+id/textAnswer"
     android:layout_width="match_parent"
