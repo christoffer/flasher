@@ -19,12 +19,21 @@ public class FlashCardEntry {
   // Text of the entry
   public static final String FIELD_TEXT = "text";
 
+  // Language classification
+  public static final String FIELD_LANG_CODE = "en";
+
   // Additional entry classification
   public static final String FIELD_PRIMARY_GROUP = "primary_group";
   public static final String FIELD_SECONDARY_GROUP = "secondary_group";
 
-  // Common classification constants
+  // Non-value
   public static final int NONE = 0;
+
+  // Language identifiers
+  public static final int ENGLISH = 1;
+  public static final int GERMAN = 2;
+
+  // Common classification constants
   public static final int NOUN = 1;
   public static final int VERB = 2;
   public static final int ADJECTIVE = 3;
@@ -38,28 +47,32 @@ public class FlashCardEntry {
     columnName = FIELD_ID,
     generatedId = true
   )
-  public int id;
+  private int id;
 
   @DatabaseField(
     columnName = FIELD_TEXT,
     canBeNull = false,
     dataType = DataType.STRING
   )
-  public String text;
+  private String mText;
+
+  @DatabaseField(
+    columnName = FIELD_LANG_CODE,
+    dataType = DataType.SHORT
+  )
+  private int mLanguageCode;
 
   @DatabaseField(
     columnName = FIELD_PRIMARY_GROUP,
-    canBeNull = true,
     dataType = DataType.SHORT
   )
-  public int primaryGroup;
+  private int mPrimaryGroup;
 
   @DatabaseField(
     columnName = FIELD_SECONDARY_GROUP,
-    canBeNull = true,
     dataType = DataType.SHORT
   )
-  public int secondaryGroup;
+  private int mSecondaryGroup;
 
   @SuppressWarnings("UnusedDeclaration")
   public FlashCardEntry() {
@@ -77,9 +90,33 @@ public class FlashCardEntry {
   }
 
   @SuppressWarnings("UnusedDeclaration")
-  public FlashCardEntry(String text, int primaryGroup, int secondaryGroup) {
-    this.text = text;
-    this.primaryGroup = primaryGroup;
-    this.secondaryGroup = secondaryGroup;
+  public FlashCardEntry(String text, int languageCode, int primaryGroup) {
+    mText = text;
+    mLanguageCode = languageCode;
+    mPrimaryGroup = primaryGroup;
+  }
+
+  @SuppressWarnings("UnusedDeclaration")
+  public FlashCardEntry(String text, int languageCode, int primaryGroup, int secondaryGroup) {
+    mText = text;
+    mLanguageCode = languageCode;
+    mPrimaryGroup = primaryGroup;
+    mSecondaryGroup = secondaryGroup;
+  }
+
+  public String getText() {
+    return mText == null ? "" : mText;
+  }
+
+  public int getLanguageCode() {
+    return mLanguageCode;
+  }
+
+  public int getPrimaryGroup() {
+    return mPrimaryGroup;
+  }
+
+  public int getSecondaryGroup() {
+    return mSecondaryGroup;
   }
 }
