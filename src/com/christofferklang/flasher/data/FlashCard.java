@@ -1,12 +1,7 @@
 package com.christofferklang.flasher.data;
 
-import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-
-import static com.christofferklang.flasher.data.FlashCard.FIELD_ANSWER_ID;
-import static com.christofferklang.flasher.data.FlashCard.FIELD_ID;
-import static com.christofferklang.flasher.data.FlashCard.FIELD_QUESTION_ID;
 
 /**
  * A flash card is an association between two flash card entries.
@@ -57,13 +52,13 @@ public class FlashCard {
    * Gets the question word for this card
    */
   public String getQuestion() {
-    return questionEntry == null ? "" : questionEntry.text;
+    return questionEntry == null ? "" : questionEntry.getText();
   }
 
   /**
    * Gets the answer word for this card
    */
   public String getAnswer() {
-    return answerEntry == null ? "" : answerEntry.text;
+    return answerEntry == null ? "" : answerEntry.getText();
   }
 }
